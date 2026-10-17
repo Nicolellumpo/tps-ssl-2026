@@ -1,0 +1,61 @@
+digraph ConstanteDecimalX {
+    rankdir=LR;
+    node [shape=circle, fontname="Helvetica", style=filled, fillcolor=lightyellow];
+    edge [color=darkgreen, fontcolor=black];
+
+    inicio_arrow [shape=point];
+    inicio          [label="inicio",          fillcolor=lightblue];
+    digito_completo [label="digito\ncompleto", fillcolor=lightgreen, shape=doublecircle];
+
+    Q1p [label="Q1."];
+    Q2p [label="Q2."];
+    Q3p [label="Q3."];
+    Q4p [label="Q4."];
+    S2p [label="S2."];
+    S3p [label="S3."];
+    S4p [label="S4."];
+
+    Q1m [label="Q1-"];
+    Q2m [label="Q2-"];
+    Q3m [label="Q3-"];
+    Q4m [label="Q4-"];
+    S2m [label="S2-"];
+    S3m [label="S3-"];
+    S4m [label="S4-"];
+
+    inicio_arrow -> inicio;
+
+    // Desde inicio
+    inicio -> Q1p [label="."];
+    inicio -> Q1m [label="-"];
+
+    // Tramo punto primero
+    Q1p -> Q2p [label="."];
+    Q1p -> S2p [label="-"];
+    Q2p -> Q3p [label="."];
+    Q2p -> S3p [label="-"];
+    Q3p -> Q4p [label="."];
+    Q3p -> S4p [label="-"];
+    Q4p -> digito_completo [label="."];
+    Q4p -> digito_completo [label="-"];
+    S2p -> S3p [label="-"];
+    S3p -> S4p [label="-"];
+    S4p -> digito_completo [label="-"];
+
+    // Tramo raya primero
+    Q1m -> Q2m [label="-"];
+    Q1m -> S2m [label="."];
+    Q2m -> Q3m [label="-"];
+    Q2m -> S3m [label="."];
+    Q3m -> Q4m [label="-"];
+    Q3m -> S4m [label="."];
+    Q4m -> digito_completo [label="-"];
+    Q4m -> digito_completo [label="."];
+    S2m -> S3m [label="."];
+    S3m -> S4m [label="."];
+    S4m -> digito_completo [label="."];
+
+    // Desde digito_completo (digitos pegados)
+    digito_completo -> Q1p [label="."];
+    digito_completo -> Q1m [label="-"];
+}

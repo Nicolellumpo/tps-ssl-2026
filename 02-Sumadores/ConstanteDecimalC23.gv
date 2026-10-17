@@ -1,0 +1,15 @@
+digraph ConstanteDecimalC23 {
+    rankdir=LR;
+    node [shape=circle, fontname="Helvetica", style=filled, fillcolor=lightyellow];
+    edge [color=darkgreen, fontcolor=black];
+
+    inicio [shape=point];
+    INICIO [label="INICIO", fillcolor=lightblue];
+    DIGITO [label="DIGITO", fillcolor=lightgreen];
+    SEPARADOR [label="SEPARADOR", fillcolor=lightpink];
+    
+    INICIO -> DIGITO [label="1-9"];
+    DIGITO -> DIGITO [label="0-9"];
+    DIGITO -> SEPARADOR [label="'"];
+    SEPARADOR -> DIGITO [label="0-9"];
+}
